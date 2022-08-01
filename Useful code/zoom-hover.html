@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .article-container {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    position: relative;
+}
+
+    .article-img-holder {
+    width: 100%;
+    height: 100%;
+    background: url(https://awik.io/demo/background-image-zoom/traffic2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 1s;
+}
+
+.article-img-holder:hover {
+    transform: scale(1.2);
+}
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-img-holder"></div>
+    </div>
+</body>
+</html>

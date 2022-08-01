@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Image transition </title>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <style>
+        .box-area {
+	padding: 10% 0;
+}
+.img-area .single-img {
+	width: 361px;
+	height: 350px;
+}
+.line {
+	box-shadow: 0 2px 20px #000;
+	transition: 0.5s;
+	background: linear-gradient(-45deg, transparent 40%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.8) 50%, transparent 50%);
+	background-color: rgba(255, 255, 255, 0.3);
+	background-size: 400% 400%;
+	background-position: 90% 90%;
+	animation: animate 2s ease infinite;
+}
+.line .single-img {
+	background-size: auto 100%;
+	background-position: center;
+	transition: .2s;
+}
+.line:hover .single-img {
+	background-size: auto 100%;
+}
+.img-area:hover .single-img {
+	width: 348px;
+}
+.line:hover {
+	padding: 6px;
+}
+@keyframes animate {
+	to {
+		background-position: 25% 25%;
+	}
+}
+
+    </style>
+</head>
+<body>
+    <div class="box-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="img-area line">
+						<div class="single-img" style="background-image: url(https://i.postimg.cc/XqDjXNvr/1.jpg);"></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-area line">
+						<div class="single-img" style="background-image: url(https://i.postimg.cc/RCb47FMF/2.jpg);"></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-area line">
+						<div class="single-img" style="background-image: url(https://i.postimg.cc/V6ZQWGPT/3.jpg);"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

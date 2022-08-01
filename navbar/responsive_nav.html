@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+}
+
+.nav-res {
+  height: 50px;
+  width: 100%;
+  background-color: #4d4d4d;
+  position: relative;
+}
+
+.nav-res > .nav-link-header {
+  display: inline;
+}
+
+.nav-res > .nav-link-header > .nav-link-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav-res > .nav-link-btn {
+  display: none;
+}
+
+.nav-res > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav-res > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav-res > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-res > #nav-link-check {
+  display: none;
+}
+
+@media (max-width:767px) {
+  .nav-res > .nav-link-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav-res > .nav-link-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav-res > .nav-link-btn > label:hover,.nav  #nav-link-check:checked ~ .nav-link-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav-res > .nav-link-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav-res > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav-res > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav-res > #nav-link-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav-res > #nav-link-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+</style>
+</head>
+<body>
+    <div class="nav-res">
+        <input type="checkbox" id="nav-link-check">
+        <div class="nav-link-header">
+          <div class="nav-link-title"> logo </div>
+        </div>
+        <div class="nav-link-btn">
+          <label for="nav-link-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="//github.io/jo_geek" target="_blank">Github</a>
+          <a href="http://stackoverflow.com/users/4084003/" target="_blank">Stackoverflow</a>
+          <a href="https://in.linkedin.com/in/jonesvinothjoseph" target="_blank">LinkedIn</a>
+          <a href="https://codepen.io/jo_Geek/" target="_blank">Codepen</a>
+          <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">JsFiddle</a>
+      </div>
+    </div>
+</body>
+</html>

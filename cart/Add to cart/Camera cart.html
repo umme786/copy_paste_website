@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title> Camera </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-picZoomer.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            background-color: black;
+        }
+
+        .wrap {
+            border-bottom: 1px solid #e0dede;
+            background-color: #fff;
+            display: flex;
+            /* border: 2px solid red; */
+        }
+
+        .main {
+            border-bottom: 1px solid #e0dede;
+            padding-bottom: 30px;
+            padding-left: 80px;
+        }
+
+        #img_icon {
+            width: 40px;
+            margin-right: 15px;
+            height: 40px;
+        }
+
+        .camera {
+            width: 80%;
+            display: flex;
+            margin: 0 auto;
+            /* border: 2px solid yellow; */
+        }
+
+        .cam img {
+            height: 439px;
+            width: 415.1028137207031px;
+        }
+
+        .all-wrap {
+            display: flex;
+            width: 90%;
+            margin: 0 auto;
+            /* border: 2px solid orange; */
+        }
+
+        .all-wrap1 {
+            width: 70%;
+            /* border: 2px solid green; */
+        }
+
+        .all-wrap2 {
+            border-left: 1px solid #eaeaea;
+            background: white;
+            width: 30%;
+            /* margin-top: 29px; */
+        }
+
+        .for-img {
+            height: 111px;
+            width: 139px;
+            left: 45.929779052734375px;
+            top: 13px;
+            border-radius: 0px;
+        }
+
+        .all {
+            background-color: #fff;
+            margin: 0 auto;
+            /* border: 2px solid blue; */
+        }
+
+        .all-cont {
+            display: flex;
+        }
+
+        .left-cont {
+            padding-top: 20px;
+            float: right;
+            justify-content: right;
+            width: 50%;
+            display: flex;
+            margin-top: 20px;
+            /* border: 2px solid pink; */
+        }
+
+        .left-cont img {
+            height: 47.9998779296875px;
+            width: 79.99979400634766px;
+            left: 212px;
+            top: 455px;
+            margin: 10px;
+            border: 1px solid #E1E1E1;
+            border-radius: 0px;
+        }
+
+        .right-cont {
+            padding: 0px 25px 25px 25px;
+            width: 50%;
+            /* border: 2px solid skyblue; */
+        }
+
+        .ti {
+            padding-top: 30px;
+            font-size: 35px;
+            text-align: center;
+        }
+
+        .articles {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-left: 10px;
+            /* border: 2px solid yellow; */
+        }
+
+        .cart {
+            margin: 10px auto;
+            background-color: #fff;
+        }
+
+        .articles>div {
+            margin: 20px;
+        }
+
+        .picZoomer img {
+            width: 100%;
+            height: 350px;
+        }
+
+        .tit {
+            font-size: 20px;
+            margin: 20px 20px 10px 0px;
+            color: #353535;
+        }
+
+        #total {
+            padding-right: 20px;
+            background: #FFB600;
+            border-radius: 3px;
+            height: 48px;
+            border-radius: 3px;
+            padding-top: 18px;
+        }
+
+        .prod h4 {
+            color: #006068 !important;
+            color: #006068 !important;
+        }
+
+        #price1,
+        #price2,
+        #price3 {
+            position: relative;
+            right: -10px;
+        }
+
+        .inputs,
+        input,
+        select {
+            margin-top: 5px;
+        }
+
+        #size1,
+        #size2,
+        #size3 {
+            width: 80px;
+        }
+
+        input {
+            width: 50px;
+        }
+
+        .addTo {
+            position: relative;
+            left: 0px;
+            width: 100px;
+            height: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-left: 0;
+            background-color: green;
+            color: beige;
+            border-width: 0px;
+            border: 1px solid black;
+        }
+
+        .addTo:hover {
+            background-image: none;
+            border: 1px solid grey;
+            background-color: red;
+            cursor: pointer;
+        }
+
+        li {
+            display: flex;
+            padding-top: 5px;
+            line-height: 2;
+            padding-bottom: 5px;
+            list-style: none;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #message1,
+        #message2,
+        #message3 {
+            color: red;
+            font-family: italic;
+            font-style: italic;
+        }
+
+        button {
+            line-height: 0px;
+            margin-left: 20px;
+            height: 20px;
+            width: 30px;
+            margin-top: 8px;
+            border-radius: 50%;
+            color: aliceblue;
+            background-color: #ff512f;
+            border-width: 0px;
+            margin-right: 20px;
+        }
+
+        button:hover {
+            background-color: #dd2476;
+        }
+
+        .flex {
+            display: flex;
+            border: 2px solid rgb(11, 111, 179);
+        }
+
+        .cart h3 {
+            margin: 20px;
+        }
+
+        h2 {
+            font-size: 21px;
+            font-style: normal;
+            padding-top: 40px;
+            padding-right: 40px;
+            font-weight: bold;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+
+        .wrap h6 {
+            margin: 0 auto;
+            text-align: center;
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            padding: 7px;
+            line-height: 18px;
+            letter-spacing: 0em;
+            /* float: right; */
+            width: 75px;
+            background-color: #e00202;
+            color: white;
+        }
+
+        .camera h6 {
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            padding: 7px;
+            line-height: 18px;
+            letter-spacing: 0em;
+            width: 80px;
+            background-color: #e00202;
+            color: white;
+        }
+
+        .camera h5 {
+            color: #e00202;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .main span,
+        .fa {
+            color: #006068;
+            font-weight: bold;
+        }
+
+        h5 span {
+            color: black !important;
+            font-size: 15px;
+        }
+
+        .main h4 {
+            margin: 10px 10px 10px 0px;
+            padding: 10px 10px 10px 0px;
+        }
+
+        .pack {
+            border: 1px solid #034599;
+            padding: 15px 20px;
+            margin: 20px 10px 10px 0px;
+            color: #034599 !important;
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .pack:hover {
+            background-color: #27AEE4;
+            color: white !important;
+        }
+
+        .war {
+            padding: 10px 10px 10px 0px;
+            color: rgb(34, 34, 34);
+            margin: 10px 10px 10px 0px;
+            /* border: 2px solid yellow; */
+        }
+
+        .year {
+            border: 1px solid #0f0f0f;
+            padding: 15px 20px;
+            margin: 20px 10px 10px 0px;
+            color: #0f0f0f !important;
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+            /* border: 2px solid yellow; */
+        }
+
+        .year:hover {
+            background-color: #27AEE4;
+            color: white !important;
+        }
+
+        .add-one {
+            font-size: 28px;
+            text-align: center;
+            margin-left: 15rem;
+        }
+
+        .pack1 {
+            background: #27AEE4;
+            color: white !important;
+            border: 1px solid #27AEE4;
+            border-radius: 2px;
+        }
+
+        .pack1:hover {
+            border: 1px solid #0f0f0f;
+        }
+
+        .review {
+            color: #006068;
+        }
+
+        .margin {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .absolute {
+            position: absolute;
+            margin-top: -28px;
+        }
+
+        img {
+            cursor: pointer;
+        }
+
+        .piclist {
+            margin-top: 30px;
+        }
+
+        .piclist li {
+            display: inline-block;
+            /* width: 100px;
+            height: 100px; */
+        }
+
+        .piclist li img {
+            width: 100%;
+            height: auto;
+        }
+
+        .picZoomer-pic-wp,
+        .picZoomer-zoom-wp {}
+
+        .picZoomer-zoom-wp {
+            top: 13px !important;
+            left: 318px !important;
+            background-color: #fff;
+        }
+
+        #quantity1,
+        #quantity2,
+        #quantity3 {
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+
+<body>
+    <!-------------------------- Page wrapper start ----------------------------------->
+    <div class="all-wrap">
+        <!-------------------------- all wrap 1 start ----------------------------------->
+        <div class="all-wrap1">
+            <div class="all">
+                <h2 class="ti"> Add to Cart </h2>
+
+                <!-------------------------- header start ----------------------------------->
+                <div class="camera">
+                    <div class="cam picZoomer">
+                        <img src="img/full.png" alt="camera">
+                    </div>
+
+                    <div class="main">
+                        <h2> MPX HD 1080p Outdoor PTZ Camera, 4x Optical Zoom with Color Night Vision, Metal Camera
+                        </h2>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span> 56 Review </span>
+                        <h6> Save $100.00 </h6>
+                        <h5> $199.99 <span> <del> $299.99 </del> </span> </h5>
+                        <h4> Multi-Pack: </h4>
+                        <h3> <span class="pack"> Single </span> <span class="pack"> 2 - Pack </span> <span class="pack">
+                                4 -
+                                Pack </span> </h3>
+                        <h3 class="war"> Choose your Warranty </h3>
+                        <h4> <span class="year pack1"> 2 Year - $59.99 </span>
+                            <span class="year"> 3 Year - $79.99 </span>
+                            <span class="year"> 4 Year - $94.99 </span>
+                        </h4>
+                    </div>
+                </div>
+                <!-------------------------- header end ----------------------------------->
+
+                <!-------------------------- banner start ----------------------------------->
+                <h3 class="add-one"> Add One product </h3>
+                <div class="all-cont">
+                    <ul class="piclist left-cont">
+                        <li><img src="img/1.png" alt="img"></li>
+                        <li><img src="img/2.png" alt="img"></li>
+                        <li><img src="img/3.png" alt="img"></li>
+                        <li><img src="img/4.png" alt="img"></li>
+                    </ul>
+
+                    <div class="right-cont">
+                        <div class="articles">
+
+                            <!-------------------------- wrap 1 start ----------------------------------->
+                            <div class="wrap">
+                                <div class="left-img">
+                                    <h6> Save $100.00 </h6>
+                                    <img id="imageId1" class="for-img" src="img/desk.png">
+                                </div>
+                                <div class="right-img">
+                                    <div class="prod">
+                                        <h3 class="tit" id="brand1"> DEAL OF THE DAY! 4K Ultra HD 8 Channel Security DVR
+                                            with...
+                                        </h3>
+                                        <h4> LRXSHOP8 </h4>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <span class="review"> 12 Review </span>
+                                        <h4 id="price1" class="margin"> 129.99 </h4>
+                                        <h4 class="margin absolute">$</h4>
+                                        <del class="margin"> $299.99 </del>
+                                    </div>
+                                    <div class="inputs">
+                                        <input type="number" id="quantity1" name="quantity1" min="1" max="99" value="1">
+                                        <select id="size1" name="size1" onclick="deleteE('message1')">
+                                            <option value="size" disabled selected> Quantity </option>
+                                            <option value="Single"> Single </option>
+                                            <option value="2 - Pack"> 2 - Pack </option>
+                                            <option value="4 - Pack"> 4 - Pack </option>
+                                        </select>
+                                        <div>
+                                            <button class="addTo" onclick="add(1)">Add</button>
+                                        </div>
+                                    </div>
+                                    <p id="message1"></p>
+                                </div>
+                            </div>
+                            <!-------------------------- wrap 1 end ----------------------------------->
+
+                            <!-------------------------- wrap 2 start ----------------------------------->
+                            <div class="wrap">
+                                <div class="left-img">
+                                    <h6> Save $100.00 </h6>
+                                    <img id="imageId2" class="for-img" src="img/wire.png">
+                                </div>
+                                <div class="right-img">
+                                    <div class="prod">
+                                        <h3 class="tit" id="brand2"> 100ft (30m) Premium 4K RG59/Power Accessory Cable
+                                        </h3>
+                                        <h4> LRXSHOP8 </h4>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <span class="review"> 12 Review </span>
+                                        <h4 id="price2" class="margin"> 49.99 </h4>
+                                        <h4 class="margin absolute">$</h4>
+                                    </div>
+                                    <div class="inputs">
+                                        <input type="number" id="quantity2" name="quantity2" min="1" max="99" value="1">
+                                        <select id="size2" name="size2" onclick="deleteE('message2')">
+                                            <option value="size" disabled selected> Quantity </option>
+                                            <option value="Single"> Single </option>
+                                            <option value="2 - Pack"> 2 - Pack </option>
+                                            <option value="4 - Pack"> 4 - Pack </option>
+                                        </select>
+                                        <div>
+                                            <button class="addTo" onclick="add(2)">Add</button>
+                                        </div>
+                                    </div>
+                                    <p id="message2"></p>
+                                </div>
+                            </div>
+                            <!-------------------------- wrap 2 end ----------------------------------->
+
+                            <!-------------------------- wrap 3 start ----------------------------------->
+                            <div class="wrap">
+                                <div class="left-img">
+                                    <h6> Save $100.00 </h6>
+                                    <img id="imageId3" class="for-img" src="img/card.png">
+                                </div>
+                                <div class="right-img">
+                                    <div class="prod">
+                                        <h3 class="tit" id="brand3"> 256GB Surveillance-grade microSD card </h3>
+                                        <h4> LRXSHOP8 </h4>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <span class="review"> 12 Review </span>
+                                        <h4 id="price3" class="margin"> 64.99 </h4>
+                                        <h4 class="margin absolute">$</h4>
+                                    </div>
+                                    <div class="inputs">
+                                        <input type="number" id="quantity3" name="quantity3" min="1" max="99" value="1">
+                                        <select id="size3" name="size3" onclick="deleteE('message3')">
+                                            <option value="size" disabled selected> Quantity </option>
+                                            <option value="Single"> Single </option>
+                                            <option value="2 - Pack"> 2 - Pack </option>
+                                            <option value="4 - Pack"> 4 - Pack </option>
+                                        </select>
+                                        <div>
+                                            <button class="addTo" onclick="add(3)">Add</button>
+                                        </div>
+                                    </div>
+                                    <p id="message3"></p>
+                                </div>
+                            </div>
+                            <!-------------------------- wrap 3 end ----------------------------------->
+                        </div>
+                    </div>
+                    <!-------------------------- banner end ----------------------------------->
+                </div>
+            </div>
+        </div>
+        <!-------------------------- wrap 1 end ----------------------------------->
+
+        <!-------------------------- wrap 2 start ----------------------------------->
+        <div class="all-wrap2">
+            <div class="cart">
+                <h3 class="tit"> Price Summary </h3>
+                <ul id="items"></ul>
+                <h3 id="total" style="text-align: right;">Total Amt: Rs. 0 </h3>
+            </div>
+        </div>
+        <!-------------------------- wrap 2 end ----------------------------------->
+
+    </div>
+    <!-------------------------- Page wrapper end ----------------------------------->
+
+    <script>
+        var total = 0;
+        var i = 1;
+        var message = "Please select Quantity";
+        var itemCost = [];
+        function add(n) {
+            sizeId = "size" + n;
+            messageId = "message" + n;
+            size = document.getElementById(sizeId).value;
+            if (size === "size") {
+                document.getElementById(messageId).innerHTML = message;
+                return 0;
+            }
+            imagesrcId = "imageId" + n;
+            brand = "brand" + n;
+            priceId = "price" + n;
+            quantityId = "quantity" + n;
+            name = document.getElementById(brand).innerHTML;
+            price = document.getElementById(priceId).innerHTML;
+            quantity = document.getElementById(quantityId).value;
+            var node = document.createElement("LI");
+            item = "item" + i;
+            node.setAttribute("id", item)
+            itemCost[i - 1] = Number(price) * Number(quantity);
+            i += 1;
+            image_src = document.getElementById(imagesrcId).getAttribute('src')
+            var xImg = document.createElement("IMG");
+            xImg.setAttribute("src", image_src);
+            xImg.setAttribute("id", "img_icon");
+            node.appendChild(xImg);
+            //--img--//
+            var textnode = document.createTextNode(name + " " + quantity + " x " + price + " $, Quantity: " + size);
+            node.appendChild(textnode);
+            document.getElementById("items").appendChild(node);
+            total += Number(price) * Number(quantity);
+            document.getElementById("total").innerHTML = "Total: " + total.toFixed(2) + " $";
+            document.getElementById(item).innerHTML += '<button onclick="deleItem(' + "'" + item + "'" + ')"> x </button>';
+        }
+        function deleteE(eId) {
+            document.getElementById(eId).innerHTML = ' ';
+        }
+        function deleItem(eId) {
+            document.getElementById(eId).remove();
+            n = Number(eId.slice(-1)) - 1;
+            total -= itemCost[n];
+            document.getElementById("total").innerHTML = "Total: " + total.toFixed(2) + " $";
+        }
+    </script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="src/jquery.picZoomer.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.picZoomer').picZoomer();
+
+            $('.piclist li').on('click', function (event) {
+                var $pic = $(this).find('img');
+                $('.picZoomer-pic').attr('src', $pic.attr('src'));
+            });
+        });
+    </script>
+
+</body>
+
+</html>

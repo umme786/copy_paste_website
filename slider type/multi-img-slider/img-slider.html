@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="jquery.easy_slides.css" rel="stylesheet" type="text/css" />
+    <script src="easy_slides.js"></script>
+    <title> Slider </title>
+</head>
+<body>
+    <section>
+        <h2>4 in line</h2>
+        <div class="slider slider_four_in_line">
+            <div>
+                <img src="https://image.freepik.com/free-photo/rain-water-green-leaf-macro_1150-12802.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/green-leaf-forest_1150-12333.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/old-wooden-fence-beautiful-mountain-landscape-blue-sky_181624-41984.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/mesmerizing-view-plitvice-lakes-national-park-croatia_181624-31820.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/countryside-field-sunny-day-countryside_181624-24010.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/plant-alpine-meadow-pyrenees_1398-3219.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/beautiful-landscape-bamboo-grove-forest-arashiyama-kyoto_74190-2264.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/overhead-aerial-shot-wavy-blue-sea-perfect-background_181624-26817.jpg">
+            </div>
+            <div>
+                <img src="https://image.freepik.com/free-photo/european-hamster-flowering-meadow_475641-322.jpg">
+            </div>
+            <div class="next_button"></div>
+            <div class="prev_button"></div>
+        </div>
+        <script>
+                EasySlides('.slider_four_in_line',
+                {
+                    'autoplay': true,
+                    'show': 9
+                });
+
+                EasySlides('.slider_random',
+                {
+                    'autoplay': true,
+                    'stepbystep': false,
+                    'show': 'all',
+                    'beforeshow': function (this_slider) {
+                        const slides = this_slider.querySelectorAll(':scope>*:not(.next_button, .prev_button, .nav_indicators)');
+                        slides.forEach(function (element, index) {
+                            let x = element.dataset.x;
+                            let y = element.dataset.y;
+                            let r = element.dataset.r;
+
+                            if (typeof x == 'undefined') {
+                                x = (100 / slides.length) * index;
+                                element.dataset.x = x;
+                            }
+                            if (typeof y == 'undefined') {
+                                y = Math.floor(Math.random() * 25) + 70;
+                                element.dataset.y = y;
+                            }
+                            if (typeof r == 'undefined') {
+                                r = Math.floor(Math.random() * 180) - 90;
+                                element.dataset.r = r;
+                            }
+
+                            element.style.left = x+'%';
+                            element.style.top = y+'%';
+                            element.style.transform = 'rotate('+r+'deg)';
+                        });
+                    },
+                    'aftershow': function (this_slider) {
+                        const slides = this_slider.querySelectorAll(':scope>*:not(.next_button, .prev_button, .nav_indicators)');
+                        slides.forEach(function (element, index) {
+                            if (element.classList.contains('active')) {
+                                element.style.left = '';
+                                element.style.top = '';
+                                element.style.transform = '';
+                            }
+                        });
+                    }
+                 });
+        </script>
+    </section>
+</body>
+</html>

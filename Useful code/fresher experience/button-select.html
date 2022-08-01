@@ -1,0 +1,224 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+        #btn1{
+            background-color: white;
+            border: 1px solid rgb(255, 140, 0);
+            color: rgb(255, 140, 0);
+            border-radius: 5px;
+            padding: 8px 30px;
+            cursor: pointer;
+        }
+        #btn2{
+            background-color: white;
+            border: 1px solid rgb(255, 140, 0);
+            color: rgb(255, 140, 0);
+            border-radius: 5px;
+            padding: 8px 30px;
+            cursor: pointer;
+        }
+    </style>
+  </head>
+
+  <body>
+    <button id="btn1"> Fresher </button>
+    <button id="btn2"> Experience </button>
+
+    <script>
+        // --------------button1---------------
+        const btn1 = document.getElementById('btn1');
+
+            btn1.addEventListener('click', function onClick(event) {
+            const backgroundColor = btn1.style.backgroundColor;
+
+            if (backgroundColor === 'white') {
+                btn1.style.backgroundColor = 'rgb(255, 140, 0)';
+                btn1.style.color = 'white';
+            } else {
+                btn1.style.backgroundColor = 'white';
+                btn1.style.color = 'rgb(255, 140, 0)';
+            }
+            });
+
+        // --------------button2-------------
+            const btn2 = document.getElementById('btn2');
+
+                btn2.addEventListener('click', function onClick(event) {
+                const backgroundColor = btn2.style.backgroundColor;
+
+                if (backgroundColor === 'white') {
+                    btn2.style.backgroundColor = 'rgb(255, 140, 0)';
+                    btn2.style.color = 'white';
+                } else {
+                    btn2.style.backgroundColor = 'white';
+                    btn2.style.color = 'rgb(255, 140, 0)';
+                }
+                });
+                
+    </script>
+    
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> radio button </title>
+
+<style>
+    * {
+        font-family: 'Archivo', sans-serif;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+        }
+
+    .donate-now {
+        display: flex;
+        justify-content: center;
+        height: 95vh;
+        list-style-type: none;
+        align-items: center;
+        padding: 0;
+        }
+
+    .donate-now .li {
+        width: 200px;
+        height: 31px;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .donate-now label, .donate-now input {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .donate-now input[type="radio"] {
+        opacity: 0.011;
+        z-index: 2;
+    }
+
+    .donate-now input[type="radio"]:checked + label {
+        background: rgb(255, 140, 0);
+        color: white;
+    }
+
+    .donate-now label {
+        text-align: center;
+        height: 19px;
+        border-radius: 5px;
+        padding: 4px 0px;
+        border: 1px solid rgb(255, 140, 0);
+        color: rgb(255, 140, 0);
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .donate-now label:hover {
+        background: rgba(253, 247, 238, 0.993);
+    }
+
+    ul li{
+        padding: 20px;
+        box-shadow: 0px 4px 13px 2px rgb(206 206 206 / 50%);
+        border-radius: 5px;
+        margin: 20px;
+    }
+    ul li:hover{
+        border: 2px solid rgb(255, 140, 0);
+    }
+    
+    .img{      
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    li.active {
+        border: 2px solid rgb(255, 140, 0);
+    }
+
+    @media only screen and (max-width: 500px) {
+        .donate-now {
+            display:  block;
+        }
+    }
+
+</style>
+
+</head>
+<body>
+    <ul class="donate-now clearfix">
+        <li>
+            <div class="img">
+                <img src="./fresher.png" alt="img">
+            </div>
+           <div class="li">
+                <input type="radio" id="a25" name="amount" />
+                <label for="a25"> Fresher </label>
+           </div>
+        </li>
+
+        <li>
+          <div class="img">
+                <img src="./fresher.png" alt="img">
+          </div>
+            <div class="li">
+                <input type="radio" id="a50" name="amount" />
+                <label for="a50"> Experience </label>
+           </div>
+        </li>
+    </ul>
+
+    <script>
+        // --------------for border----------------
+        function toggleParentStyle(opts) {
+          var settings = {
+              'activeClass': 'active',
+              'targetElementSelector': 'li',
+              'uniquelyActive': true
+              },
+              trigger = this;
+
+          for (var prop in opts) {
+              if (opts.hasOwnProperty(prop)) {
+              settings[prop] = opts[prop];
+              }
+          }
+
+          var selector = settings.targetElementSelector,
+              ancestor = trigger.closest(selector),
+              c = settings.activeClass,
+              selectedSibling = ancestor
+              .parentNode
+              .querySelector(selector + '.' + c);
+
+          if (settings.uniquelyActive && selectedSibling) {
+              selectedSibling.classList.remove(c);
+          }
+
+          ancestor.classList[ancestor.classList.contains(c) ? 'remove' : 'add'](c);
+          }
+
+          var radios = document.querySelectorAll('input[type=radio]'),
+          radiosArray = Array.prototype.slice.call(radios, 0);
+
+          radiosArray.forEach(function (radio) {
+          radio.addEventListener('change', toggleParentStyle);
+          });
+    </script>
+
+</body>
+</html>

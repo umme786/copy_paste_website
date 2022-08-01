@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Toggle nav </title>
+<style>
+*{
+	box-sizing: border-box;
+}
+html, html{
+	overflow-x: hidden;
+	height: 100%;
+}
+.header{
+	background: #ee5253;
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	z-index: 10;
+}
+.main{
+	height: 100%;
+	margin-top: 60px;
+	padding: 10px 50px;
+}
+#sidebar{
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 250px;
+	margin-top: 60px;
+	background: #2e86de;
+	transform: translateX(-250px);
+	transition: transform 0.5s ease-in-out;
+}
+#open-sidebar:checked ~ #sidebar{
+	transform: translateX(0px);
+}
+.menu{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.menu li{
+	color: #fff;
+	border-bottom: 1px solid rgba(255,255,255,0.10);
+	}
+.menu li a{
+	color: #fff;
+	text-decoration: none;
+	padding: 20px;
+	display: block;
+	text-transform: uppercase;
+	}
+.menu li a:hover {
+	background-color: #216ebb;
+	}
+.sidebar-icon-toggle{
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	z-index: 20;
+	top: 22px;
+	left: 15px;
+	cursor: pointer;
+}
+.spinner{
+     height: 3px;
+	 background: #fff;
+	 transition: all 0.3s;
+}
+.spinner.middle, 
+.spinner.bottom{
+	margin-top: 3px;
+}
+#open-sidebar:checked ~ .sidebar-icon-toggle > .spinner.middle{
+	opacity: 0;
+}
+#open-sidebar:checked ~ .sidebar-icon-toggle > .spinner.top{
+	transform: rotate(135deg);
+	margin-top: 8px;
+}
+#open-sidebar:checked ~ .sidebar-icon-toggle > .spinner.bottom{
+	transform: rotate(-135deg);
+	margin-top: -9px;
+}
+</style>
+</head>
+<body>
+    <div class="header"> </div>
+		<input type="checkbox" id="open-sidebar">
+		<label for="open-sidebar" class="sidebar-icon-toggle">
+			<div class="spinner top"></div>
+			<div class="spinner middle"></div>
+			<div class="spinner bottom"></div>
+		</label>
+		<div id="sidebar">
+			<ul class="menu">
+				<li><a href=""> Home </a></li>
+				<li><a href=""> About  </a></li>
+				<li><a href=""> Gallery </a></li>
+				<li><a href=""> Products </a></li>
+				<li><a href=""> Contact us </a></li>
+			 </ul>	
+		</div>
+		<div class="main">
+			<h1> Pure CSS sidebar Toggle Menu </h1>
+			<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic minima tempore aperiam saepe maiores fugit, architecto harum dolor animi mollitia ad esse doloribus, nihil repellendus atque? A quas natus voluptas!</p>
+		</div>
+</body>
+</html>

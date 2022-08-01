@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> testimonial </title>
+    <link rel="stylesheet" href="./css/testimonial.css">
+</head>
+<body>
+    <div class="container">
+        <div class="view-box">
+            <div id="testimonials">
+
+                <div class="user">
+                    <img src="./img/unsplash_eSjmZW97cH8.png" alt="img">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque consequatur aliquam consectetur veniam maiores non excepturi. Et quibusdam est repudiandae nam suscipit consequatur culpa porro dolorem vero. Corrupti, asperiores quam.</p>
+                    <h3> Umme </h3>
+                </div>
+
+                <div class="user space">
+                    <img src="./img/unsplash_jzY0KRJopEI.png" alt="img">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque consequatur aliquam consectetur veniam maiores non excepturi. Et quibusdam est repudiandae nam suscipit consequatur culpa porro dolorem vero. Corrupti, asperiores quam.</p>
+                    <h3> Umme Ruman </h3>
+                </div>
+
+                <div class="user">
+                    <img src="./img/unsplash_X6Uj51n5CE8.png" alt="img">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque consequatur aliquam consectetur veniam maiores non excepturi. Et quibusdam est repudiandae nam suscipit consequatur culpa porro dolorem vero. Corrupti, asperiores quam.</p>
+                    <h3> Umme Ruman JULIE </h3>
+                </div>
+
+            </div>
+
+            <div class="controls">
+                <span id="control1"></span>
+                <span id="control2" class="active"></span>
+                <span id="control3"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var testimonials = document.getElementById('testimonials');
+        var control1 = document.getElementById('control1');
+        var control2 = document.getElementById('control2');
+        var control3 = document.getElementById('control3');
+
+        control1.onclick = function(){
+            testimonials.style.transform = "translateX(870px)";
+            control1.classList.add("active");
+            control2.classList.remove("active");
+            control3.classList.remove("active");
+        }
+
+        control2.onclick = function(){
+            testimonials.style.transform = "translateX(0px)";
+            control1.classList.remove("active");
+            control2.classList.add("active");
+            control3.classList.remove("active");
+        }
+
+        control3.onclick = function(){
+            testimonials.style.transform = "translateX(-870px)";
+            control1.classList.remove("active");
+            control2.classList.remove("active");
+            control3.classList.add("active");
+        }
+    </script>
+</body>
+</html>

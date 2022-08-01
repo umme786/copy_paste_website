@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To do list </title>
+</head>
+<body>
+    <!------------------example 1------------------->
+    <div class="container">
+        <input type="text" id="inputField" placeholder="demo"> 
+        <button id="addToDo"> + </button>
+        <div id="toDoContainer"> </div>
+    </div>
+    <script>
+        let inputField = document.getElementById("inputField");
+        let addToDo = document.getElementById("addToDo");
+        let toDoContainer = document.getElementById("toDoContainer");
+
+         addToDo.addEventListener('click', function(){
+         var paragraph = document.createElement('p');
+         paragraph.innerHTML = inputField.value;
+         toDoContainer.append(paragraph);
+         inputField.value="";
+        });
+    </script>
+
+    <!------------------example 2------------------->
+      <div class="container">
+          <input type="text" id="name" class="input" />
+          <input type="button" value="+" id="btnClick" class="btn" onclick="addMore()" />
+          <ul id="box"> </ul>
+
+          <span id="error"> <i> </i></span> <!-----for validation----->
+      </div>
+
+      <script>
+           function addMore(){
+               let name = document.getElementById('name').value;
+               if(name==''){
+                     document.getElementById('error').innerHTML="please enter value";
+               } else{
+                   let box = document.getElementById('box');
+                   let li = document.createElement('li');
+                   li.innerHTML = name;
+                   box.append(li);
+                   document.getElementById('name').value="";
+               }
+           }
+      </script>
+
+    <!------------------example 3------------------>
+    <div class="container">
+        <input type="text" id="input" placeholder="demo2"> 
+        <button id="add"> + </button>
+        <div id="Container_list"> </div>
+
+        <span id="validation"> <i> </i></span> 
+
+    </div>
+    <script>
+        let input = document.getElementById("input");
+        let add = document.getElementById("add");
+        let Container_list = document.getElementById("Container_list");
+        if(input=""){
+            document.getElementById('validation').innerHTML="please enter value";
+        } else{
+        
+            add.addEventListener('click', function(){
+                var heading = document.createElement('h3');
+                heading.innerHTML = input.value;
+                Container_list.append(heading);
+                input.value="";
+                })
+        }
+    </script>
+</body>
+</html>

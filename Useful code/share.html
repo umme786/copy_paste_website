@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Restoring browsering effects */
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #000;
+}
+
+.main_box{
+	width: 4em;
+	height: 4em;
+	position: relative;
+}
+
+#share_button{
+	display: none;
+}
+
+span,a{
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+span{
+	width: 4em;
+	height: 4em;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #eee;
+	color: #333;
+	font-size: 2em;
+	z-index: 1;
+	cursor: pointer;
+	/* border-radius: 30%; */
+}
+
+.sm_list{
+	width: 4em;
+	height: 4em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.sm_list a{
+	width: 4em;
+	height: 4em;
+	border-radius: 50%;
+	text-decoration: none;
+	color: #fff;
+	transition: all .3s;
+	font-size: 1.5em;
+}
+
+#share_button:checked ~ .sm_list a:nth-child(1){
+	background-color: #3B5998;
+	transition-delay: 0.2s;
+	transform: translateX(-6em);
+}
+
+#share_button:checked ~ .sm_list a:nth-child(2){
+	background-color: #dd2553;
+	transition-delay: 0.2s;
+	transform: translateX(6em);
+}
+
+#share_button:checked ~ .sm_list a:nth-child(3){
+	background-color: #000f94;
+	transition-delay: 0.3s;
+	transform: translateX(12em);
+}
+
+#share_button:checked ~ .sm_list a:nth-child(4){
+	background-color: #ec2610;
+	transition-delay: 0.3s;
+	transform: translateX(-12em);
+}
+
+#share_button:checked ~ .sm_list a:nth-child(5){
+	background-color: rgb(10, 63, 0);
+	transition-delay: 0.4s;
+	transform: translateX(18em);
+}
+
+#share_button:checked ~ .sm_list a:nth-child(6){
+	background: linear-gradient(70deg,rgb(1, 83, 165),rgb(64, 122, 238),rgb(4, 154, 240),rgb(244, 245, 246));
+	transition-delay: 0.4s;
+	transform: translateX(-18em);
+}
+
+/* Hovering Effects */
+#share_button:checked ~ .sm_list a:nth-child(1):hover{
+	background-color: #ffffff;
+	color: #3B5998;
+	/* transition-delay: 0.2s;
+	transform: translateX(-6em); */
+}
+
+#share_button:checked ~ .sm_list a:nth-child(2):hover{
+	color: #dd2553;
+	background-color: #fff;
+}
+
+#share_button:checked ~ .sm_list a:nth-child(3):hover{
+	color: #000f94;
+	background-color: #fff;
+}
+
+#share_button:checked ~ .sm_list a:nth-child(4):hover{
+	color: #f91f07;
+	background-color: #fff;
+}
+
+#share_button:checked ~ .sm_list a:nth-child(5):hover{
+	color: rgb(10, 63, 0);
+	background-color: #fff;
+}
+
+#share_button:checked ~ .sm_list a:nth-child(6):hover{
+	color: rgb(3, 152, 211);
+	background-image: linear-gradient(90deg,rgb(158, 220, 241),rgb(245, 241, 241));
+}
+
+span:visited{
+	background-color: #000f94;
+}
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://kit.fontawesome.com/704ff50790.js"
+		crossorigin="anonymous">
+	</script>
+
+	<script src="index.js"></script>
+</head>
+
+<body>
+	<div class="main_box">
+		<input type="checkbox" id="share_button">
+		<label for="share_button">
+			<span class="sharebtn" >
+			<i class="far fa-share-square"></i>
+			</span>
+		</label>
+
+		<div class="sm_list">
+			<a href="https://www.facebook.com/" class="facebook">
+			<i class="fab fa-facebook-f"></i>
+			</a>
+			<a href="https://www.instagram.com/" class="instagram">
+			<i class="fab fa-instagram"></i>
+			</a>
+			<a href="https://www.linkedin.com/signup" class="linkedin">
+			<i class="fab fa-linkedin-in"></i>
+			</a>
+			<a href="https://www.youtube.com/" class="discord">
+			<i class="fa fa-youtube-play"></i>
+			</a>
+			<a href="https://web.whatsapp.com/" class="whatsapp">
+			<i class="fab fa-whatsapp"></i>
+			</a>
+			<a href="https://twitter.com/" class="slack">
+			<i class="fa fa-twitter-square"></i>
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>
+
+    <script>
+        // Selecting the html class and
+// convert it to an object
+
+const sharebtn =
+	document.querySelector('.sharebtn')
+
+// Creating a bool variable for changing
+// the image of share button
+var bool = 0
+
+// Adding an event listener
+sharebtn.addEventListener('click', () => {
+
+	// As we clicked the mouse over
+	// the share button the bool value.
+	// get flipped and then working of
+	// if-else loop get starts
+	bool = !bool
+	
+	if (bool == 0) {
+		sharebtn.innerHTML =
+			'<i class="far fa-share-square"></i>'
+	} else {
+		sharebtn.innerHTML =
+			'<i class="fas fa-times"></i>'
+	}
+})
+
+    </script>
+</body>
+</html>
